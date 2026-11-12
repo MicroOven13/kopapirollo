@@ -1,0 +1,30 @@
+body {
+    max-width: 600px;
+    margin: auto;
+}
+
+article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    width: 100%;
+}
+.gombok {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+#jatekos, #gep {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+}
