@@ -37,9 +37,38 @@ function megjelenit(){
     
 }
 
-function kivalaszt(){
+function kivalaszt(event){
   const kep=document.querySelector("#jatekos img")
-  console.log(kep)
+  console.log(event.target)
   console.log(event.target.id)
-  kep.src="kepek/ko.png"
+  kep.src=`kepek/${event.target.id}.png`
+  gepValasztas(event.target.id)
+}
+
+function gepValasztas(jvalasztasa){
+  const kep = document.querySelector("#gep img")
+  console.log(kep)
+  let veletlen=Math.floor(Math.random()*3)
+  console.log(veletlen)
+  if (veletlen==0){
+    kep.src="kepek/ko.PNG"
+  }else if (veletlen==1){
+    kep.src="kepek/papir.PNG"
+  } else {
+    kep.src="kepek/ollo.PNG"
+  }
+  ellenorzes(veletlen, jvalasztasa)
+}
+
+function ellenorzes(veletlen, jvalasztasa){
+  let gep = "ollo"
+  let szoveg = "A gép nyert"
+  if (veletlen == 0) gep = "ko"
+  if (veletlen == 1) gep = "papir" 
+  if (jvalasztasa == gep) szoveg = "Döntetlen"
+  if (jvalasztasa == "ko" && gep == "ollo") szoveg = "Játékos nyert"
+  if (jvalasztasa == "papir" && gep == "ko") szoveg = "Játékos nyert"
+  if (jvalasztasa == "ollo" && gep == "papir") szoveg = "Játékos nyert"
+
+  document.getElementById("gyoztes").textContent = szoveg
 }
